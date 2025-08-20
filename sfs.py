@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import allel
 import random
-from tqdm import tqdm
-from sklearn.svm import SVC
 
 callset = allel.read_vcf('/data/scratch/bt24018/vcf/vcf_results_03june25/central_africa/eq_guinea_3L.vcf.gz') #change path to where VCF file for each region is
 
@@ -56,7 +54,7 @@ plt.show()
 #callset = allel.read_vcf('/data/scratch/bt24018/vcf/vcf_results_03june25/central_africa/eq_guinea_3L.vcf.gz')
 gt = allel.GenotypeArray(callset['calldata/GT'])  # shape: (n_sites, n_samples, ploidy)
 
-# Downsample to 10 diploid mosquitoes (20 chromosomes)
+# Downsample to 9 diploid mosquitoes (18 chromosomes)
 random.seed(42)  # for reproducibility
 n_diploids = 9
 if gt.n_samples < n_diploids:
